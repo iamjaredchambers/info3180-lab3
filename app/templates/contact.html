@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block main %}
+<h2> Email Form in Flask!</h2>
+
+<form method = "post" action = "{{ url_for('contact') }}">
+    {{form.csrf_token}}
+    <div class="form-group mb-3">
+        {{ form.name.label(class="form-label") }} {{ form.name(class="form-control") }}
+    </div>
+    <div class="form-group mb-3">
+        {{ form.email.label(class="form-label") }} {{ form.email(class="form-control") }}
+    </div>
+
+    <div class="form-group mb-3">
+        {{ form.subject.label(class="form-label") }} {{ form.subject(class="form-control") }}
+    </div>
+    <div class="form-group mb-3">
+        {{ form.message.label(class="form-label") }} {{ form.message(class="form-control") }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    
+
+{% endblock %}
